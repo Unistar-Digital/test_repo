@@ -1,9 +1,9 @@
-name: zb-cailapub
+name: basic-starter-bot
 
 entryPoint: main.sc
 
 botEngine: v2
-language: ru
+language: en
 
 tests:
   include:

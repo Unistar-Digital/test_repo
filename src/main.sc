@@ -1,26 +1,23 @@
-require: requirements.sc
-
+require: slotfilling/slotFilling.sc
+  module = sys.zb-common
 theme: /
 
     state: Start
         q!: $regex</start>
-        script:
-            $session.checkFunction = CheckBase()
-            log("CHECK BASE: " + $session.checkFunction)
-            $session.managerPhone = ''
+        a: Let's start.
+
+    state: Hello
+        intent!: /hello
+        a: Hello hello
 
     state: Bye
-        intent!: /пока
-        a: Пока пока
+        intent!: /bye
+        a: Bye bye
 
     state: NoMatch
         event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
+        a: I do not understand. You said: {{$request.query}}
 
     state: Match
         event!: match
         a: {{$context.intent.answer}}
-    
-    state: CheckBot
-        q!: $regex</checkbot>
-        a: Бот успешно работает
